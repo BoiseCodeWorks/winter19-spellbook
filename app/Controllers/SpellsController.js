@@ -11,7 +11,6 @@ function _drawSpells() {
 }
 
 function _drawActiveSpell(){
-
   let spell = store.State.activeSpell;
   document.getElementById("active").innerHTML = spell.Template
 }
@@ -53,6 +52,14 @@ export default class SpellsController {
   async selectMySpellAsync(id){
     try {
       await SpellsService.selectMySpellAsync(id)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async castMySpellAsync(){
+    try {
+      await SpellsService.castMySpell()
     } catch (error) {
       console.error(error)
     }

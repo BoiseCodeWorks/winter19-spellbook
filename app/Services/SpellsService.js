@@ -16,6 +16,9 @@ let _sandbox = axios.create({
 
 
 class SpellsService {
+  async castMySpellAsync() {
+  await _sandbox.delete(store.State.activeSpell._id)
+  }
   constructor(){
     console.log("yo from spellsService")
     this.getMySpellsAsync()
