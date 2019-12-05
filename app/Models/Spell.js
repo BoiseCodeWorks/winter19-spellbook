@@ -3,20 +3,21 @@ export default class Spell {
         this.name = data.name
         this.id = data.id || data._id
         this.range = data.range
-        this.desc = data.desc
+        this.description = data.description || data.desc 
         this.level = data.level
+        this.duration = data.duration
 
     }
 
     get Template() {
-        return `
+        return /*html*/`
         <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">${this.name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">${this.level}</h6>
-                  <p class="card-text">${this.desc}</p>
+                  <p class="card-text">${this.description}</p>
                   <p>${this.range}</p>
-                  <button>Add Spell</button>
+                  <button onclick="app.spellsController.addSpellAsync()">Add Spell</button>
                 </div>
               </div>`
     }
